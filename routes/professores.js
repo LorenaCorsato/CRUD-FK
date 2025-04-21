@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { Professor } = require('../models');
 
-// Listar todos os professores
 router.get("/", async (req, res) => {
     const professores = await Professor.findAll();
     res.render("base", {
@@ -12,7 +11,6 @@ router.get("/", async (req, res) => {
     });
 });
 
-// Formulário para adicionar professor
 router.get("/add", async (req, res) => {
     res.render("base", {
         title: "Adicionar Professor",
@@ -20,13 +18,11 @@ router.get("/add", async (req, res) => {
     });
 });
 
-// Adicionar novo professor ao banco
 router.post("/add", async (req, res) => {
     await Professor.create({ nome: req.body.nome });
     res.redirect("/professores");
 });
 
-// Formulário para editar professor
 router.get("/edit/:id", async (req, res) => {
     const professor = await Professor.findByPk(req.params.id);
     res.render("base", {
@@ -36,7 +32,6 @@ router.get("/edit/:id", async (req, res) => {
     });
 });
 
-// Atualizar professor no banco
 router.post("/edit/:id", async (req, res) => {
     await Professor.update(
         { nome: req.body.nome },
@@ -45,7 +40,6 @@ router.post("/edit/:id", async (req, res) => {
     res.redirect("/professores");
 });
 
-// Excluir professor
 router.post("/delete/:id", async (req, res) => {
     await Professor.destroy({ where: { id: req.params.id } });
     res.redirect("/professores");
