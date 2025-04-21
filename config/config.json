@@ -1,0 +1,23 @@
+{
+    "development": {
+    "username": "root",
+    "password": "",
+    "database": "3dspi",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "database": "3dspi",
+    "host": "localhost",
+    "password": "",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "database": "3dspi",
+    "password": "",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
